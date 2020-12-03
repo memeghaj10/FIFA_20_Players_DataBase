@@ -51,7 +51,7 @@ def find_country(country):
 def find_ovr(ovr):
     cnx=mysql.connector.connect(host="localhost",user="root",passwd="Current-Root-Password",database="mydb")
     cur=cnx.cursor()
-    cur.execute("SELECT * FROM FIFA_20 WHERE player_ovr ="+"'"+ovr+"'"+";")
+    cur.execute("SELECT * FROM FIFA_20 WHERE player_ovr ="+"'"+str(ovr)+"'"+";")
    # cnx.commit()
     for x in cur:
         print(x)
@@ -76,7 +76,7 @@ def update_club(newclub,name):
 def update_ovr(newovr,name):
     cnx=mysql.connector.connect(host="localhost",user="root",passwd="Current-Root-Password",database="mydb")
     cur=cnx.cursor()
-    cur.execute("UPDATE FIFA_20 SET player_ovr ="+"'"+newovr+"'"+" WHERE player_name ="+"'"+name+"'"+";")
+    cur.execute("UPDATE FIFA_20 SET player_ovr ="+"'"+str(newovr)+"'"+" WHERE player_name ="+"'"+name+"'"+";")
     cnx.commit()
     cnx.close()
 
